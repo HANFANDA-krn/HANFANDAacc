@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HANFANDA | Biodata Hewan Darat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Cardo:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="scroll-progress" aria-hidden="true">
+        <span></span>
+    </div>
+
+    <header>
+        <nav>
+            <div class="brand">
+                HANFANDA
+                <span>Galeri Satwa Darat</span>
+            </div>
+            <div class="nav-actions">
+                <ul>
+                    <li><a class="nav-link" href="#pengantar">Pengantar</a></li>
+                    <li><a class="nav-link" href="#panduan">Panduan</a></li>
+                    <li><a class="nav-link" href="#galeri">Galeri Spesies</a></li>
+                    <li><a class="nav-link" href="#data">Data & Fakta</a></li>
+                    <li><a class="nav-link" href="#timeline">Konservasi</a></li>
+                    <li><a class="nav-link" href="#tips">Tips Peduli</a></li>
+                    <li><a class="nav-link" href="#faq">FAQ</a></li>
+                </ul>
+                <button type="button" id="themeToggle" class="ghost-button" aria-pressed="false" title="Alihkan tema">
+                    ☀️ Mode Cerah
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="pengantar" class="hero">
+            <div>
+                <div class="badge-row">
+                    <span class="badge">HANFANDA</span>
+                    <span class="badge">Hewan Darat</span>
+                    <span class="badge">Eksplorasi Fauna</span>
+                </div>
+                <h1>Menjelajah Dunia Hewan Darat Bersama HANFANDA</h1>
+                <p>
+                    Dari padang savana hingga tajuk hutan tropis, hewan darat menampakkan strategi bertahan hidup yang menakjubkan. HANFANDA menghadirkan biodata visual berbagai spesies ikonik melalui kurasi data, foto autentik, dan nuansa elegan yang nyaman dibaca—karena pengetahuan terasa lebih hangat saat tampil menawan.
+                </p>
+            </div>
+        </section>
+
+        <section id="panduan" class="assist-bar" aria-label="Panduan cepat">
+            <h2>Panduan Interaktif</h2>
+            <p>
+                Gunakan alat bantu berikut untuk memahami isi situs dengan cepat. Semua fitur dirancang agar informasi mengenai satwa darat tersaji ringkas, jelas, dan mudah ditelusuri.
+            </p>
+            <div class="assist-buttons">
+                <button type="button" id="openHowTo" class="tool-button accent">Cara Menggunakan Situs</button>
+                <button type="button" id="openGlossary" class="tool-button ghost">Legenda Status & Istilah</button>
+                <button type="button" id="summaryToggle" class="tool-button ghost" aria-expanded="false">
+                    Tampilkan Ringkasan Cepat
+                </button>
+            </div>
+            <div class="summary-box" id="summaryBox" hidden aria-live="polite">
+                <h3>Ringkasan Koleksi Saat Ini</h3>
+                <ul id="summaryList" class="summary-list">
+                    <li>Data ringkasan akan muncul di sini.</li>
+                </ul>
+                <p class="summary-note">Ringkasan ini mengikuti hasil filter dan pencarian yang sedang aktif.</p>
+            </div>
+            <div class="key-points">
+                <article>
+                    <h3>1. Galeri Interaktif</h3>
+                    <p>Setiap kartu hewan memuat habitat, perilaku, dan adaptasi utama disertai foto sesuai spesies.</p>
+                </article>
+                <article>
+                    <h3>2. Data Terstruktur</h3>
+                    <p>Tabel “Data & Fakta” merangkum status konservasi, pola aktivitas, dan ancaman utama.</p>
+                </article>
+                <article>
+                    <h3>3. Dukungan Pembelajaran</h3>
+                    <p>FAQ dan legenda membantu memahami istilah kunci, sementara tips memberi inspirasi aksi nyata.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="control-panel" aria-label="Panel fitur pro">
+            <div class="panel-header">
+                <h2>Panel Kendali Pro</h2>
+                <p>Gunakan pencarian pintar, filter konservasi, dan opsi sortir untuk menampilkan spesies sesuai kebutuhan. Ekspor data langsung bila perlu.</p>
+            </div>
+            <div class="tool-panel">
+                <label class="field">
+                    <span>Pencarian Spesies</span>
+                    <input type="search" id="searchSpecies" class="search-input" placeholder="Cari nama hewan (mis. Panda)" autocomplete="off" />
+                </label>
+                <label class="field">
+                    <span>Status Konservasi</span>
+                    <select id="statusFilter" class="select-control">
+                        <option value="all">Semua status</option>
+                        <option value="kritis">Kritis (CR)</option>
+                        <option value="terancam">Terancam (EN)</option>
+                        <option value="rentan">Rentan (VU)</option>
+                        <option value="nt">Hampir Terancam (NT)</option>
+                        <option value="lc">Minim Kekhawatiran (LC)</option>
+                    </select>
+                </label>
+                <label class="field">
+                    <span>Urutkan</span>
+                    <select id="sortSelect" class="select-control">
+                        <option value="featured">Pilihan kurator</option>
+                        <option value="name-asc">Nama (A → Z)</option>
+                        <option value="name-desc">Nama (Z → A)</option>
+                        <option value="status">Status konservasi</option>
+                    </select>
+                </label>
+                <div class="action-group">
+                    <button type="button" id="clearFilters" class="tool-button ghost">Reset Filter</button>
+                    <button type="button" id="exportData" class="tool-button accent">Ekspor Data JSON</button>
+                </div>
+            </div>
+            <p class="panel-status" id="panelStatus" aria-live="polite">Menampilkan 8 dari 8 spesies.</p>
+            <p class="hint">Fitur Pro: pencarian real-time, filter konservasi, mode tema ganda, ringkasan otomatis, ekspor data, statistik interaktif, indikator progres baca, navigasi pintar, dan tombol kembali ke atas.</p>
+        </section>
+
+        <section class="stats" aria-label="Statistik cepat">
+            <div class="stat-grid">
+                <article class="stat-card">
+                    <span class="icon" aria-hidden="true">🌍</span>
+                    <span class="label">Spesies Terdata</span>
+                    <span class="value" data-counter data-target="245" data-suffix="+">0</span>
+                    <p>Jumlah spesies darat yang telah terkurasi di basis data HANFANDA.</p>
+                </article>
+                <article class="stat-card">
+                    <span class="icon" aria-hidden="true">🛡️</span>
+                    <span class="label">Program Konservasi</span>
+                    <span class="value" data-counter data-target="68" data-suffix="+">0</span>
+                    <p>Inisiatif lapangan aktif yang tercatat dalam dua dekade terakhir.</p>
+                </article>
+                <article class="stat-card">
+                    <span class="icon" aria-hidden="true">🤝</span>
+                    <span class="label">Relawan Terlibat</span>
+                    <span class="value" data-counter data-target="1280" data-suffix="+">0</span>
+                    <p>Kontributor komunitas yang mendukung konservasi satwa darat.</p>
+                </article>
+                <article class="stat-card">
+                    <span class="icon" aria-hidden="true">📊</span>
+                    <span class="label">Laporan Riset</span>
+                    <span class="value" data-counter data-target="54" data-suffix="+">0</span>
+                    <p>Publikasi ilmiah terbaru yang menjadi referensi kurasi konten.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="galeri">
+            <h2 class="section-title"><span>Koleksi Terpilih</span>Galeri Spesies Unggulan</h2>
+            <div class="animal-grid">
+                <article class="card"
+                    data-name="Gajah Afrika"
+                    data-scientific="Loxodonta africana"
+                    data-status="Rentan (VU)"
+                    data-status-tier="rentan"
+                    data-habitat="Sabana & hutan Afrika"
+                    data-diet="Herbivor"
+                    data-activity="Diurnal"
+                    data-region="Afrika">
+                    <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=900&q=80" alt="Gajah Afrika sedang berjalan di sabana" />
+                    <div class="card-content">
+                        <h3>Gajah Afrika (<em>Loxodonta africana</em>)</h3>
+                        <div class="meta">
+                            <span>Habitat: Sabana & hutan Afrika</span>
+                            <span>Bobot: 3.000–6.000 kg</span>
+                            <span>Status: Rentan (VU)</span>
+                        </div>
+                        <ul class="fact-list">
+                            <li><strong>Makanan</strong>Herbivor (rumput, daun, kulit pohon)</li>
+                            <li><strong>Perilaku</strong>Kawanan matriarkal dengan memori kuat</li>
+                            <li><strong>Adaptasi</strong>Telinga besar menjaga suhu tubuh</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="card"
+                    data-name="Harimau Sumatra"
+                    data-scientific="Panthera tigris sumatrae"
+                    data-status="Kritis (CR)"
+                    data-status-tier="kritis"
+                    data-habitat="Hutan tropis Sumatra"
+                    data-diet="Karnivor"
+                    data-activity="Nocturnal–krepuskular"
+                    data-region="Asia">
+                    <img src="https://images.unsplash.com/photo-1526676037777-05b3b08f3037?auto=format&fit=crop&w=900&q=80" alt="Harimau Sumatra bersembunyi di semak" />
+                    <div class="card-content">
+                        <h3>Harimau Sumatra (<em>Panthera tigris sumatrae</em>)</h3>
+                        <div class="meta">
+                            <span>Habitat: Hutan tropis Sumatra</span>
+                            <span>Bobot: 75–140 kg</span>
+                            <span>Status: Kritis (CR)</span>
+                        </div>
+                        <ul class="fact-list">
+                            <li><strong>Makanan</strong>Karnivor (rusa, babi hutan, tapir)</li>
+                            <li><strong>Perilaku</strong>Soliter, menjaga wilayah luas</li>
+                            <li><strong>Adaptasi</strong>Loreng rapat untuk kamuflase rapat</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="card"
+                    data-name="Gorila Pegunungan"
+                    data-scientific="Gorilla beringei beringei"
+                    data-status="Terancam (EN)"
+                    data-status-tier="terancam"
+                    data-habitat="Hutan pegunungan Afrika Tengah"
+                    data-diet="Herbivor"
+                    data-activity="Diurnal"
+                    data-region="Afrika">
+                    <img src="https://images.unsplash.com/photo-1486365227551-f3f90034a57c?auto=format&fit=crop&w=900&q=80" alt="Gorila pegunungan duduk di hutan" />
+                    <div class="card-content">
+                        <h3>Gorila Pegunungan (<em>Gorilla beringei beringei</em>)</h3>
+                        <div class="meta">
+                            <span>Habitat: Hutan pegunungan Afrika Tengah</span>
+                            <span>Bobot: 90–220 kg</span>
+                            <span>Status: Terancam (EN)</span>
+                        </div>
+                        <ul class="fact-list">
+                            <li><strong>Makanan</strong>Daun, pucuk bambu, buah hutan</li>
+                            <li><strong>Perilaku</strong>Kelompok dengan pemimpin silverback</li>
+                            <li><strong>Adaptasi</strong>Bulu tebal tahan suhu dingin</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="card"
+                    data-name="Serigala Abu-abu"
+                    data-scientific="Canis lupus"
+                    data-status="Minim Kekhawatiran (LC)"
+                    data-status-tier="lc"
+                    data-habitat="Hutan boreal & tundra"
+                    data-diet="Karnivor"
+                    data-activity="Krepuskular"
+                    data-region="Amerika Utara & Eurasia">
+                    <img src="https://images.unsplash.com/photo-1516893841443-99f4d41f1d4e?auto=format&fit=crop&w=900&q=80" alt="Serigala abu-abu di salju" />
+                    <div class="card-content">
+                        <h3>Serigala Abu-abu (<em>Canis lupus</em>)</h3>
+                        <div class="meta">
+                            <span>Habitat: Hutan boreal & tundra</span>
+                            <span>Bobot: 30–80 kg</span>
+                            <span>Status: Minim Kekhawatiran (LC)</span>
+                        </div>
+                        <ul class="fact-list">
+                            <li><strong>Makanan</strong>Karnivor (ungulata, mamalia kecil)</li>
+                            <li><strong>Perilaku</strong>Berburu sinergis dalam kawanan</li>
+                            <li><strong>Adaptasi</strong>Komunikasi vokal & penciuman tajam</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="card"
+                    data-name="Bison Amerika"
+                    data-scientific="Bison bison"
+                    data-status="Hampir Terancam (NT)"
+                    data-status-tier="nt"
+                    data-habitat="Padang rumput Amerika Utara"
+                    data-diet="Herbivor"
+                    data-activity="Diurnal"
+                    data-region="Amerika Utara">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=80" alt="Bison Amerika di padang rumput" />
+                    <div class="card-content">
+                        <h3>Bison Amerika (<em>Bison bison</em>)</h3>
+                        <div class="meta">
+                            <span>Habitat: Padang rumput Amerika Utara</span>
+                            <span>Bobot: 450–1.000 kg</span>
+                            <span>Status: Hampir Terancam (NT)</span>
+                        </div>
+                        <ul class="fact-list">
+                            <li><strong>Makanan</strong>Rumput dan herba prairie</li>
+                            <li><strong>Perilaku</strong>Migrasi musiman besar</li>
+                            <li><strong>Adaptasi</strong>Otot leher kuat untuk menyibak salju</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="card"
+                    data-name="Kanguru Merah"
+                    data-scientific="Macropus rufus"
+                    data-status="Minim Kekhawatiran (LC)"
+                    data-status-tier="lc"
+                    data-habitat="Semak belukar Australia"
+                    data-diet="Herbivor"
+                    data-activity="Nocturnal–krepuskular"
+                    data-region="Australia">
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80" alt="Kanguru merah dengan anak di kantong" />
+                    <div class="card-content">
+                        <h3>Kanguru Merah (<em>Macropus rufus</em>)</h3>
+                        <div class="meta">
+                            <span>Habitat: Semak belukar Australia</span>
+                            <span>Tinggi: 1,3–1,8 m</span>
+                            <span>Status: Minim Kekhawatiran (LC)</span>
+                        </div>
+                        <ul class="fact-list">
+                            <li><strong>Makanan</strong>Rumput, daun, bunga liar</li>
+                            <li><strong>Perilaku</strong>Melompat dengan kaki belakang kuat</li>
+                            <li><strong>Adaptasi</strong>Kantong marsupial untuk anak</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="card"
+                    data-name="Panda Raksasa"
+                    data-scientific="Ailuropoda melanoleuca"
+                    data-status="Rentan (VU)"
+                    data-status-tier="rentan"
+                    data-habitat="Hutan bambu Tiongkok"
+                    data-diet="Herbivor"
+                    data-activity="Diurnal"
+                    data-region="Asia">
+                    <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80" alt="Panda raksasa makan bambu" />
+                    <div class="card-content">
+                        <h3>Panda Raksasa (<em>Ailuropoda melanoleuca</em>)</h3>
+                        <div class="meta">
+                            <span>Habitat: Hutan bambu Tiongkok</span>
+                            <span>Bobot: 70–120 kg</span>
+                            <span>Status: Rentan (VU)</span>
+                        </div>
+                        <ul class="fact-list">
+                            <li><strong>Makanan</strong>Didominasi bambu, sesekali buah</li>
+                            <li><strong>Perilaku</strong>Soliter dengan wilayah luas</li>
+                            <li><strong>Adaptasi</strong>Ibu jari palsu untuk menggenggam bambu</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="card"
+                    data-name="Komodo"
+                    data-scientific="Varanus komodoensis"
+                    data-status="Rentan (VU)"
+                    data-status-tier="rentan"
+                    data-habitat="Savana & hutan kering Nusa Tenggara"
+                    data-diet="Karnivor oportunis"
+                    data-activity="Diurnal"
+                    data-region="Asia Tenggara">
+                    <img src="https://images.unsplash.com/photo-1602851263273-0c4046c95377?auto=format&fit=crop&w=900&q=80" alt="Komodo merayap di savana" />
+                    <div class="card-content">
+                        <h3>Komodo (<em>Varanus komodoensis</em>)</h3>
+                        <div class="meta">
+                            <span>Habitat: Savana & hutan kering Nusa Tenggara</span>
+                            <span>Panjang: 2–3 m</span>
+                            <span>Status: Rentan (VU)</span>
+                        </div>
+                        <ul class="fact-list">
+                            <li><strong>Makanan</strong>Karnivor oportunis</li>
+                            <li><strong>Perilaku</strong>Berjemur untuk menaikkan suhu tubuh</li>
+                            <li><strong>Adaptasi</strong>Air liur dengan bakteri patogen</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+            <div class="empty-state" id="emptyState" aria-live="polite" hidden>
+                <p>Ups! Tidak ada spesies yang cocok dengan filter saat ini. Coba atur ulang pencarian atau pilih status lain.</p>
+            </div>
+        </section>
+
+        <section id="pro-suite" class="pro-suite">
+            <h2 class="section-title"><span>Fitur Pro HANFANDA</span>Toolkit Eksplorasi Pintar</h2>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <span class="icon" aria-hidden="true">⚡</span>
+                    <h3>Filter & Sortir Instan</h3>
+                    <p>Pencarian real-time, filter status konservasi, dan opsi sortir cerdas untuk menemukan spesies sesuai misi risetmu.</p>
+                </article>
+                <article class="feature-card">
+                    <span class="icon" aria-hidden="true">🎨</span>
+                    <h3>Mode Tema Ganda</h3>
+                    <p>Alihkan antara mode gelap aurora dan mode terang dusk hanya dengan satu klik—nyaman di mata kapan pun.</p>
+                </article>
+                <article class="feature-card">
+                    <span class="icon" aria-hidden="true">📁</span>
+                    <h3>Ekspor Data Seketika</h3>
+                    <p>Unduh biodata hewan dalam format JSON untuk dibawa ke analisis lanjut atau dibagikan ke tim konservasi.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="data">
+            <h2 class="section-title"><span>Insight Ekologis</span>Data Ringkas & Fakta Ilmiah</h2>
+            <div class="highlight-box">
+                <h3>HANFANDA Insight: Peran Satwa Darat Dalam Ekosistem</h3>
+                <p>
+                    Satwa darat menjadi arsitek alami yang menjaga aliran energi dan stabilitas ekosistem. Mereka memengaruhi penyebaran biji, keseimbangan rantai makanan, hingga dinamika tanah. Variasi ukuran tubuh, pola sosial, dan strategi metabolisme menciptakan keanekaragaman perilaku yang kita amati hari ini—dari gajah yang membuka jalur hutan hingga serigala yang mengatur populasi mangsa.
+                </p>
+            </div>
+
+            <div class="data-section">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Spesies</th>
+                            <th>Habitat Utama</th>
+                            <th>Pola Aktivitas</th>
+                            <th>Ancaman Utama</th>
+                            <th>Status IUCN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gajah Afrika</td>
+                            <td>Sabana & hutan dataran rendah</td>
+                            <td>Diurnal</td>
+                            <td>Perburuan gading, fragmentasi habitat</td>
+                            <td>Rentan (VU)</td>
+                        </tr>
+                        <tr>
+                            <td>Harimau Sumatra</td>
+                            <td>Hutan hujan tropis, rawa gambut</td>
+                            <td>Nocturnal–krepuskular</td>
+                            <td>Perdagangan ilegal, konflik manusia-satwa</td>
+                            <td>Kritis (CR)</td>
+                        </tr>
+                        <tr>
+                            <td>Gorila Pegunungan</td>
+                            <td>Hutan berkabut 2.200–4.300 mdpl</td>
+                            <td>Diurnal</td>
+                            <td>Penyakit, perburuan, degradasi habitat</td>
+                            <td>Terancam (EN)</td>
+                        </tr>
+                        <tr>
+                            <td>Serigala Abu-abu</td>
+                            <td>Hutan boreal, tundra, padang rumput</td>
+                            <td>Krepuskular</td>
+                            <td>Fragmentasi, konflik peternak</td>
+                            <td>Minim Kekhawatiran (LC)</td>
+                        </tr>
+                        <tr>
+                            <td>Bison Amerika</td>
+                            <td>Padang rumput dan prairie</td>
+                            <td>Diurnal</td>
+                            <td>Kehilangan habitat historis</td>
+                            <td>Hampir Terancam (NT)</td>
+                        </tr>
+                        <tr>
+                            <td>Kanguru Merah</td>
+                            <td>Semak belukar & gurun</td>
+                            <td>Nocturnal–krepuskular</td>
+                            <td>Kekeringan ekstrem</td>
+                            <td>Minim Kekhawatiran (LC)</td>
+                        </tr>
+                        <tr>
+                            <td>Panda Raksasa</td>
+                            <td>Hutan bambu pegunungan</td>
+                            <td>Diurnal</td>
+                            <td>Fragmentasi bambu, reproduksi lambat</td>
+                            <td>Rentan (VU)</td>
+                        </tr>
+                        <tr>
+                            <td>Komodo</td>
+                            <td>Savana & hutan kering pulau vulkanik</td>
+                            <td>Diurnal</td>
+                            <td>Bencana alam, perubahan iklim</td>
+                            <td>Rentan (VU)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <h2 class="section-title"><span>Catatan Lintas Waktu</span>Jejak Konservasi & Inisiatif Lapangan</h2>
+            <div class="timeline">
+                <article>
+                    <h3>1979 – Konvensi CITES</h3>
+                    <p>
+                        Regulasi perdagangan internasional menekan perburuan gading gajah dan bagian tubuh predator besar, menghadirkan benteng legal bagi satwa karismatik.
+                    </p>
+                </article>
+                <article>
+                    <h3>1993 – Taman Nasional Gunung Leuser</h3>
+                    <p>
+                        Kawasan konservasi terpadu di Sumatra melindungi habitat harimau, orangutan, dan spesies endemik yang berbagi ekosistem hutan gambut.
+                    </p>
+                </article>
+                <article>
+                    <h3>2007 – Program Karisoke</h3>
+                    <p>
+                        Riset intensif dan patroli hutan meningkatkan populasi gorila pegunungan berkat mitigasi perburuan serta pemantauan kesehatan rutin.
+                    </p>
+                </article>
+                <article>
+                    <h3>2013 – Reintroduksi Bison</h3>
+                    <p>
+                        Kawanan bison liar dilepasliarkan kembali ke padang rumput restorasi, memulihkan dinamika ekologi prairie Amerika Utara.
+                    </p>
+                </article>
+                <article>
+                    <h3>2015 – Zona Inti Komodo</h3>
+                    <p>
+                        Penetapan area konservasi ketat di Taman Nasional Komodo menjaga keseimbangan mangsa serta mengatur interaksi manusia-satwa dengan bijak.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="tips">
+            <h2 class="section-title"><span>Langkah Nyata</span>Tips Sederhana Peduli Satwa Darat</h2>
+            <div class="tips">
+                <p><strong>1. Dukung produk berkelanjutan:</strong> Pilih hasil hutan non-kayu dan pangan tersertifikasi untuk menekan kehilangan habitat.</p>
+                <p><strong>2. Edukasi dan kampanye:</strong> Bagikan informasi konservasi yang akurat melalui komunitas dan media sosial.</p>
+                <p><strong>3. Turisme bertanggung jawab:</strong> Gunakan operator resmi yang menerapkan etika satwa liar dan membatasi kontak langsung.</p>
+                <p><strong>4. Donasi & relawan:</strong> Salurkan bantuan ke organisasi lokal yang menjalankan patroli, riset, dan rehabilitasi satwa.</p>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <h2 class="section-title"><span>Jawaban Cepat</span>FAQ Konservasi & Edukasi</h2>
+            <div class="faq-list">
+                <article class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-1">
+                        Bagaimana cara membaca status IUCN seperti CR atau VU?
+                    </button>
+                    <div class="faq-content" id="faq-panel-1" hidden>
+                        <p>Status IUCN menunjukkan tingkat risiko kepunahan suatu spesies. CR berarti “Critically Endangered” (Kritis), EN “Endangered” (Terancam), VU “Vulnerable” (Rentan), NT “Near Threatened” (Hampir Terancam), dan LC “Least Concern” (Minim Kekhawatiran). Gunakan tombol “Legenda Status & Istilah” untuk penjelasan lengkap.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-2">
+                        Data apa yang bisa diekspor dari situs ini?
+                    </button>
+                    <div class="faq-content" id="faq-panel-2" hidden>
+                        <p>Tombol “Ekspor Data JSON” akan mengunduh daftar spesies yang tampil pada galeri (sesuai filter & pencarian). Data memuat nama umum, nama ilmiah, habitat, pola aktivitas, pola makan, wilayah persebaran, serta status konservasi.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-3">
+                        Apa manfaat fitur ringkasan cepat?
+                    </button>
+                    <div class="faq-content" id="faq-panel-3" hidden>
+                        <p>Ringkasan cepat merangkum jumlah spesies di tiap kategori konservasi, ragam habitat, dan persebaran wilayah. Fitur ini ideal untuk presentasi, laporan cepat, atau bekal diskusi kelas.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-4">
+                        Adakah tips menggunakan filter agar hasil lebih relevan?
+                    </button>
+                    <div class="faq-content" id="faq-panel-4" hidden>
+                        <p>Coba kombinasikan pencarian nama umum dengan filter status konservasi. Misalnya, ketik “G” untuk menemukan Gajah atau Gorila lalu pilih status “Rentan (VU)” untuk melihat spesies yang perlu dukungan konservasi ekstra.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 HANFANDA. Merayakan keajaiban hewan darat dalam nuansa elegan dan aura abstrak.</p>
+        <p class="note">Sumber foto: Unsplash (lisensi bebas hak cipta untuk penggunaan non-komersial). Setiap gambar dipilih agar selaras dengan deskripsi spesies.</p>
+    </footer>
+
+    <button type="button" class="back-to-top" aria-label="Kembali ke atas">↑</button>
+
+    <div class="modal" id="howToModal" hidden>
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="howToTitle">
+            <button type="button" class="modal-close" data-close-modal aria-label="Tutup panduan">×</button>
+            <h2 id="howToTitle">Cara Menggunakan Situs HANFANDA</h2>
+            <ol class="modal-steps">
+                <li>Mulai dari panel pencarian untuk menemukan spesies berdasarkan nama atau status konservasi.</li>
+                <li>Gunakan ringkasan cepat untuk melihat gambaran statistik koleksi saat ini.</li>
+                <li>Baca kartu spesies untuk detail lengkap, lalu selami tabel data dan timeline konservasi.</li>
+                <li>Buka FAQ dan legenda istilah bila membutuhkan penjelasan tambahan.</li>
+            </ol>
+            <p class="modal-tip">Tip: Gunakan tombol mode tema agar tampilan nyaman di berbagai kondisi pencahayaan.</p>
+        </div>
+    </div>
+
+    <div class="modal" id="glossaryModal" hidden>
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="glossaryTitle">
+            <button type="button" class="modal-close" data-close-modal aria-label="Tutup legenda">×</button>
+            <h2 id="glossaryTitle">Legenda Status & Istilah Penting</h2>
+            <dl class="glossary-list">
+                <dt>Kritis (CR)</dt>
+                <dd>Risiko sangat tinggi untuk punah di alam liar dalam waktu dekat.</dd>
+                <dt>Terancam (EN)</dt>
+                <dd>Populasi menurun cepat dan mendekati risiko kepunahan tinggi.</dd>
+                <dt>Rentan (VU)</dt>
+                <dd>Berada dalam tekanan yang bisa menuju fase terancam bila tidak ditangani.</dd>
+                <dt>Hampir Terancam (NT)</dt>
+                <dd>Hampir memenuhi kriteria kategori terancam, namun belum masuk daftar utama.</dd>
+                <dt>Minim Kekhawatiran (LC)</dt>
+                <dd>Spesies relatif stabil, tetapi tetap perlu pemantauan.</dd>
+                <dt>Krepuskular</dt>
+                <dd>Aktif terutama saat senja dan fajar.</dd>
+                <dt>Herbivor / Karnivor</dt>
+                <dd>Herbivor memakan tumbuhan; karnivor memakan hewan lain; banyak spesies bersifat oportunis.</dd>
+            </dl>
+            <p class="modal-tip">Catatan: Kategori status konservasi diambil dari standar IUCN Red List.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const body = document.body;
+            const themeToggle = document.querySelector("#themeToggle");
+            const progressBar = document.querySelector(".scroll-progress span");
+            const backToTop = document.querySelector(".back-to-top");
+            const searchInput = document.querySelector("#searchSpecies");
+            const statusFilter = document.querySelector("#statusFilter");
+            const sortSelect = document.querySelector("#sortSelect");
+            const clearFiltersBtn = document.querySelector("#clearFilters");
+            const exportBtn = document.querySelector("#exportData");
+            const panelStatus = document.querySelector("#panelStatus");
+            const emptyState = document.querySelector("#emptyState");
+            const grid = document.querySelector(".animal-grid");
+            const cards = Array.from(grid.querySelectorAll(".card"));
+            const totalCards = cards.length;
+            const summaryToggle = document.querySelector("#summaryToggle");
+            const summaryBox = document.querySelector("#summaryBox");
+            const summaryList = document.querySelector("#summaryList");
+            const openHowTo = document.querySelector("#openHowTo");
+            const openGlossary = document.querySelector("#openGlossary");
+            const howToModal = document.querySelector("#howToModal");
+            const glossaryModal = document.querySelector("#glossaryModal");
+            const faqTriggers = document.querySelectorAll(".faq-trigger");
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            const statusOrder = { kritis: 0, terancam: 1, rentan: 2, nt: 3, lc: 4 };
+            const statusLabels = {
+                kritis: "Kritis (CR)",
+                terancam: "Terancam (EN)",
+                rentan: "Rentan (VU)",
+                nt: "Hampir Terancam (NT)",
+                lc: "Minim Kekhawatiran (LC)"
+            };
+
+            let lastFiltered = cards;
+            let summaryOpen = false;
+            let activeModal = null;
+            let lastFocusedElement = null;
+
+            const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+            function setInitialOrder() {
+                cards.forEach((card, index) => {
+                    card.dataset.order = index;
+                });
+            }
+
+            function applyTheme(mode) {
+                const isLight = mode === "light";
+                body.classList.toggle("light-mode", isLight);
+                themeToggle.textContent = isLight ? "🌙 Mode Gelap" : "☀️ Mode Cerah";
+                themeToggle.setAttribute("aria-pressed", String(isLight));
+                localStorage.setItem("hanfanda-theme", mode);
+            }
+
+            function initTheme() {
+                const storedTheme = localStorage.getItem("hanfanda-theme");
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const initial = storedTheme || (prefersDark ? "dark" : "light");
+                applyTheme(initial);
+            }
+
+            function updateProgress() {
+                if (!progressBar) return;
+                const doc = document.documentElement;
+                const scrollHeight = doc.scrollHeight - window.innerHeight;
+                const progress = scrollHeight > 0 ? Math.min(window.scrollY / scrollHeight, 1) : 0;
+                progressBar.style.transform = `scaleX(${progress})`;
+            }
+
+            function toggleBackToTop() {
+                if (!backToTop) return;
+                const shouldShow = window.scrollY > 600;
+                backToTop.classList.toggle("visible", shouldShow);
+            }
+
+            function formatPanelStatus(visibleCount) {
+                return `Menampilkan ${visibleCount} dari ${totalCards} spesies.`;
+            }
+
+            function updateSummary() {
+                if (!summaryList) return;
+                const dataset = lastFiltered && lastFiltered.length ? lastFiltered : [];
+                if (!dataset.length) {
+                    summaryList.innerHTML = `<li>Belum ada data yang bisa diringkas. Coba ubah filter pencarian.</li>`;
+                    return;
+                }
+
+                const counts = { kritis: 0, terancam: 0, rentan: 0, nt: 0, lc: 0 };
+                const habitats = new Set();
+                const regions = new Set();
+
+                dataset.forEach((card) => {
+                    const tier = card.dataset.statusTier;
+                    counts[tier] = (counts[tier] || 0) + 1;
+                    habitats.add(card.dataset.habitat);
+                    regions.add(card.dataset.region);
+                });
+
+                const lines = Object.entries(statusLabels)
+                    .map(([tier, label]) => `<li><span>${label}</span><strong>${counts[tier]} spesies</strong></li>`);
+
+                lines.push(`<li><span>Habitat unik</span><strong>${habitats.size}</strong></li>`);
+                lines.push(`<li><span>Wilayah persebaran</span><strong>${regions.size}</strong></li>`);
+
+                summaryList.innerHTML = lines.join("");
+            }
+
+            function updateCards() {
+                const searchTerm = (searchInput?.value || "").trim().toLowerCase();
+                const statusValue = statusFilter?.value || "all";
+                const sortValue = sortSelect?.value || "featured";
+
+                const filtered = cards.filter((card) => {
+                    const matchesSearch = card.dataset.name.toLowerCase().includes(searchTerm);
+                    const matchesStatus = statusValue === "all" || card.dataset.statusTier === statusValue;
+                    return matchesSearch && matchesStatus;
+                });
+
+                cards.forEach((card) => card.classList.add("is-hidden"));
+                filtered.forEach((card) => card.classList.remove("is-hidden"));
+
+                if (panelStatus) {
+                    panelStatus.textContent = filtered.length
+                        ? formatPanelStatus(filtered.length)
+                        : "Tidak ada spesies yang cocok dengan filter.";
+                }
+
+                if (emptyState) {
+                    emptyState.hidden = filtered.length !== 0;
+                }
+
+                let sorted = [...filtered];
+                if (sortValue === "name-asc") {
+                    sorted.sort((a, b) =>
+                        a.dataset.name.localeCompare(b.dataset.name, "id", { sensitivity: "base" })
+                    );
+                } else if (sortValue === "name-desc") {
+                    sorted.sort((a, b) =>
+                        b.dataset.name.localeCompare(a.dataset.name, "id", { sensitivity: "base" })
+                    );
+                } else if (sortValue === "status") {
+                    sorted.sort((a, b) =>
+                        (statusOrder[a.dataset.statusTier] ?? 99) - (statusOrder[b.dataset.statusTier] ?? 99)
+                    );
+                } else {
+                    sorted.sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order));
+                }
+
+                const hiddenCards = cards.filter((card) => card.classList.contains("is-hidden"));
+                [...sorted, ...hiddenCards].forEach((card) => grid.appendChild(card));
+
+                lastFiltered = filtered;
+                updateSummary();
+            }
+
+            function resetFilters() {
+                if (searchInput) searchInput.value = "";
+                if (statusFilter) statusFilter.value = "all";
+                if (sortSelect) sortSelect.value = "featured";
+                updateCards();
+            }
+
+            function updateScrollUI() {
+                updateProgress();
+                toggleBackToTop();
+            }
+
+            function animateCounter(el) {
+                const target = Number(el.dataset.target);
+                const suffix = el.dataset.suffix || "";
+                const duration = 1600;
+                let startTime = null;
+
+                const step = (timestamp) => {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / duration, 1);
+                    const eased = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
+                    const currentValue = Math.floor(eased * target);
+                    el.textContent = `${currentValue.toLocaleString("id-ID")}${suffix}`;
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        el.textContent = `${target.toLocaleString("id-ID")}${suffix}`;
+                    }
+                };
+
+                requestAnimationFrame(step);
+            }
+
+            function handleCounters() {
+                const counters = document.querySelectorAll("[data-counter]");
+                if (!counters.length) return;
+
+                if (reduceMotion) {
+                    counters.forEach((counter) => {
+                        const target = Number(counter.dataset.target);
+                        const suffix = counter.dataset.suffix || "";
+                        counter.textContent = `${target.toLocaleString("id-ID")}${suffix}`;
+                    });
+                } else {
+                    const counterObserver = new IntersectionObserver(
+                        (entries, observer) => {
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    animateCounter(entry.target);
+                                    observer.unobserve(entry.target);
+                                }
+                            });
+                        },
+                        { threshold: 0.4 }
+                    );
+                    counters.forEach((counter) => counterObserver.observe(counter));
+                }
+            }
+
+            function initNavHighlight() {
+                const navLinks = Array.from(document.querySelectorAll("nav a.nav-link"));
+                if (!navLinks.length) return;
+
+                const navMap = new Map();
+                navLinks.forEach((link) => {
+                    const id = (link.getAttribute("href") || "").replace("#", "");
+                    if (id) navMap.set(id, link);
+                });
+
+                const sections = Array.from(document.querySelectorAll("main section[id]"));
+                if (!sections.length) return;
+
+                const sectionObserver = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (!entry.isIntersecting) return;
+                            const link = navMap.get(entry.target.id);
+                            if (!link) return;
+                            navLinks.forEach((item) => item.classList.remove("active"));
+                            link.classList.add("active");
+                        });
+                    },
+                    { threshold: 0.5, rootMargin: "-20% 0px -35% 0px" }
+                );
+
+                sections.forEach((section) => sectionObserver.observe(section));
+            }
+
+            function exportDataJSON() {
+                if (!exportBtn) return;
+                exportBtn.addEventListener("click", () => {
+                    const payload = cards
+                        .filter((card) => !card.classList.contains("is-hidden"))
+                        .map((card) => ({
+                            commonName: card.dataset.name,
+                            scientificName: card.dataset.scientific,
+                            conservationStatus: card.dataset.status,
+                            habitat: card.dataset.habitat,
+                            diet: card.dataset.diet,
+                            activity: card.dataset.activity,
+                            region: card.dataset.region
+                        }));
+
+                    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+                    const url = URL.createObjectURL(blob);
+                    const tempLink = document.createElement("a");
+                    tempLink.href = url;
+                    tempLink.download = "hanfanda-biodata-hewan-darat.json";
+                    document.body.appendChild(tempLink);
+                    tempLink.click();
+                    document.body.removeChild(tempLink);
+                    URL.revokeObjectURL(url);
+
+                    exportBtn.classList.add("pulse");
+                    setTimeout(() => exportBtn.classList.remove("pulse"), 700);
+                });
+            }
+
+            function handleSummaryToggle() {
+                if (!summaryToggle || !summaryBox) return;
+                summaryToggle.textContent = "Tampilkan Ringkasan Cepat";
+                summaryToggle.setAttribute("aria-expanded", "false");
+                summaryBox.hidden = true;
+
+                summaryToggle.addEventListener("click", () => {
+                    summaryOpen = !summaryOpen;
+                    summaryBox.hidden = !summaryOpen;
+                    summaryToggle.setAttribute("aria-expanded", String(summaryOpen));
+                    summaryToggle.textContent = summaryOpen ? "Sembunyikan Ringkasan" : "Tampilkan Ringkasan Cepat";
+                    if (summaryOpen) updateSummary();
+                });
+            }
+
+            function openModal(modal) {
+                if (!modal) return;
+                modal.hidden = false;
+                requestAnimationFrame(() => modal.classList.add("visible"));
+                body.classList.add("modal-open");
+                activeModal = modal;
+                lastFocusedElement = document.activeElement;
+                const focusable = modal.querySelector(focusableSelectors);
+                focusable?.focus();
+            }
+
+            function closeModal(modal) {
+                if (!modal) return;
+                modal.classList.remove("visible");
+                setTimeout(() => {
+                    modal.hidden = true;
+                }, 200);
+                body.classList.remove("modal-open");
+                activeModal = null;
+                lastFocusedElement?.focus();
+            }
+
+            function initModals() {
+                if (openHowTo && howToModal) {
+                    openHowTo.addEventListener("click", () => openModal(howToModal));
+                }
+                if (openGlossary && glossaryModal) {
+                    openGlossary.addEventListener("click", () => openModal(glossaryModal));
+                }
+
+                document.addEventListener("click", (event) => {
+                    const closeTrigger = event.target.closest("[data-close-modal]");
+                    if (closeTrigger) {
+                        const modal = event.target.closest(".modal");
+                        closeModal(modal);
+                    }
+                });
+
+                document.addEventListener("keydown", (event) => {
+                    if (event.key === "Escape" && activeModal) {
+                        closeModal(activeModal);
+                    }
+                    if (event.key === "Tab" && activeModal) {
+                        const focusable = activeModal.querySelectorAll(focusableSelectors);
+                        if (!focusable.length) return;
+                        const first = focusable[0];
+                        const last = focusable[focusable.length - 1];
+                        const isShift = event.shiftKey;
+
+                        if (isShift && document.activeElement === first) {
+                            event.preventDefault();
+                            last.focus();
+                        } else if (!isShift && document.activeElement === last) {
+                            event.preventDefault();
+                            first.focus();
+                        }
+                    }
+                });
+            }
+
+            function initFAQ() {
+                faqTriggers.forEach((button) => {
+                    button.addEventListener("click", () => {
+                        const expanded = button.getAttribute("aria-expanded") === "true";
+                        button.setAttribute("aria-expanded", String(!expanded));
+                        const content = document.getElementById(button.getAttribute("aria-controls"));
+                        if (content) content.hidden = expanded;
+                    });
+                });
+            }
+
+            setInitialOrder();
+            initTheme();
+            updateCards();
+            updateScrollUI();
+            handleCounters();
+            initNavHighlight();
+            exportDataJSON();
+            handleSummaryToggle();
+            initModals();
+            initFAQ();
+
+            window.addEventListener("scroll", updateScrollUI, { passive: true });
+            window.addEventListener("resize", updateProgress);
+
+            themeToggle?.addEventListener("click", () => {
+                const newTheme = body.classList.contains("light-mode") ? "dark" : "light";
+                applyTheme(newTheme);
+            });
+
+            searchInput?.addEventListener("input", updateCards);
+            statusFilter?.addEventListener("change", updateCards);
+            sortSelect?.addEventListener("change", updateCards);
+            clearFiltersBtn?.addEventListener("click", resetFilters);
+
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "Escape" && !activeModal) {
+                    const hasActiveFilter =
+                        (searchInput && searchInput.value) ||
+                        (statusFilter && statusFilter.value !== "all") ||
+                        (sortSelect && sortSelect.value !== "featured");
+                    if (hasActiveFilter) resetFilters();
+                }
+            });
+
+            backToTop?.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        });
+    </script>
+</body>
+</html>
