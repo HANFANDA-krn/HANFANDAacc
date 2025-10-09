@@ -1,14 +1,16 @@
 const animals = [
   {
+    emoji: "🐅",
     name: "Harimau Sumatra",
     species: "Panthera tigris sumatrae",
     category: "Mamalia",
     habitat: "Hutan hujan tropis Sumatra",
     diet: "Karnivora (rusa, babi hutan, primata)",
     character: "Lincah, soliter, dan sangat protektif",
-    funFact: "Memiliki loreng paling rapat dibanding subspecies harimau lainnya."
+    funFact: "Lorengnya paling rapat dibanding subspecies harimau lain."
   },
   {
+    emoji: "🦎",
     name: "Komodo",
     species: "Varanus komodoensis",
     category: "Reptil",
@@ -18,15 +20,17 @@ const animals = [
     funFact: "Air liurnya mengandung lebih dari 50 jenis bakteri."
   },
   {
+    emoji: "🦜",
     name: "Kakatua Raja",
     species: "Probosciger aterrimus",
     category: "Burung",
     habitat: "Hutan hujan Papua dan Australia Utara",
     diet: "Biji-bijian, kacang-kacangan, dan buah hutan",
     character: "Cerdas, vokal, dan suka bersosialisasi",
-    funFact: "Memiliki jambul besar yang dapat ditegakkan saat berkomunikasi."
+    funFact: "Jambul besar bisa ditegakkan saat berkomunikasi."
   },
   {
+    emoji: "🦧",
     name: "Orangutan Kalimantan",
     species: "Pongo pygmaeus",
     category: "Mamalia",
@@ -36,33 +40,37 @@ const animals = [
     funFact: "Menghabiskan hingga 90% waktunya di atas pohon."
   },
   {
+    emoji: "🐦",
     name: "Burung Maleo",
     species: "Macrocephalon maleo",
     category: "Burung",
     habitat: "Hutan dan pantai Sulawesi",
     diet: "Serangga, buah, biji-bijian, dan siput darat",
-    character: "Setia, suka menggali tanah pasir yang hangat",
+    character: "Setia, suka menggali pasir hangat untuk bertelur",
     funFact: "Telurnya lima kali lebih besar daripada telur ayam!"
   },
   {
+    emoji: "🐸",
     name: "Katak Bertanduk Suriname",
     species: "Ceratophrys cornuta",
     category: "Amfibi",
     habitat: "Hutan lembap dataran rendah Amerika Selatan",
-    diet: "Serangga, invertebrata kecil, kadal, bahkan mamalia kecil",
-    character: "Diam menunggu mangsa lewat, lalu menerkam cepat",
-    funFact: "Mulutnya bisa terbuka lebar hampir setengah ukuran tubuhnya."
+    diet: "Serangga, invertebrata kecil, kadal, hingga mamalia kecil",
+    character: "Diam menunggu mangsa lewat, lalu menerkam kilat",
+    funFact: "Mulutnya bisa terbuka lebar hampir setengah tubuhnya."
   },
   {
+    emoji: "🐘",
     name: "Gajah Asia",
     species: "Elephas maximus",
     category: "Mamalia",
     habitat: "Hutan tropis dan rawa Asia Tenggara",
     diet: "Herbivora (rumput, daun, kulit pohon, buah)",
     character: "Perasa, berkelompok, dan memiliki ingatan kuat",
-    funFact: "Dikenal memiliki jaringan keluarga yang sangat erat."
+    funFact: "Terkenal punya jaringan keluarga yang sangat erat."
   },
   {
+    emoji: "🦕",
     name: "Iguana Hijau",
     species: "Iguana iguana",
     category: "Reptil",
@@ -83,6 +91,7 @@ function createAnimalCard(animal) {
   card.className = "animal-card";
 
   card.innerHTML = `
+    <div class="animal-avatar">${animal.emoji}</div>
     <span class="chip">${animal.category}</span>
     <h4>${animal.name}</h4>
     <p class="species">${animal.species}</p>
@@ -92,7 +101,7 @@ function createAnimalCard(animal) {
       <div><strong>Karakter:</strong> ${animal.character}</div>
     </div>
     <div class="tags">
-      <span class="tag">Fun Fact:</span>
+      <span class="tag">Fun Fact</span>
       <span class="tag">${animal.funFact}</span>
     </div>
   `;
