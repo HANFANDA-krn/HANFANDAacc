@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HANFADA Zoo Biodata</title>
+  <title>HANFANDA Zoo Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,43 +12,61 @@
 <body>
   <header class="top-bar">
     <div class="brand">
-      <span class="brand-logo">🐅</span>
-      <h1>HANFADA</h1>
+      <img src="assets/hanfanda-logo.png" alt="Logo HANFANDA" class="brand-logo">
+      <div class="brand-text">
+        <p class="brand-overline">HANFANDA</p>
+        <h1>Zoo Hub</h1>
+      </div>
     </div>
     <nav class="top-nav">
       <a href="#koleksi">Koleksi</a>
       <a href="#tentang">Tentang</a>
       <a href="#kontak">Kontak</a>
     </nav>
+    <button class="nav-search" aria-label="Cari koleksi hewan">
+      <span>Search</span>
+    </button>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-text">
-        <h2>Galeri Biodata HANFADA</h2>
-        <p>
-          Jelajahi biodata para hewan kebanggaan HANFADA dengan tampilan modern,
-          balutan biru mendalam, dan elemen abstrak hitam yang memikat.
-        </p>
-        <button class="cta-button" onclick="scrollToCollection()">Mulai Menjelajah</button>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="abstract-circle circle-one"></div>
-        <div class="abstract-circle circle-two"></div>
-        <div class="abstract-grid"></div>
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <p class="hero-breadcrumb">HANFANDA &raquo; Kebun Binatang</p>
+          <h2>HANFANDA Zoo</h2>
+          <p class="hero-lead">
+            Eksplorasi biodata satwa favoritmu dalam platform yang penuh dinamika, menggabungkan estetika modern
+            bernuansa biru dengan aksen abstrak hitam yang tegas.
+          </p>
+          <div class="hero-stats">
+            <div>
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Satwa Terdaftar</span>
+            </div>
+            <div>
+              <span class="stat-number">15</span>
+              <span class="stat-label">Program Edukasi</span>
+            </div>
+            <div>
+              <span class="stat-number">7</span>
+              <span class="stat-label">Zona Habitat</span>
+            </div>
+          </div>
+          <button class="cta-button" onclick="scrollToCollection()">Mulai Menjelajah</button>
+        </div>
       </div>
     </section>
 
     <section id="koleksi" class="collection">
-      <div class="collection-header">
+      <header class="collection-header">
         <h3>Koleksi Hewan Unggulan</h3>
-        <p>Gunakan pencarian dan filter untuk menemukan hewan favoritmu, lengkap dengan emoji profil yang menggemaskan.</p>
-      </div>
+        <p>Kombinasi filter dan pencarian memudahkanmu menemukan profil hewan lengkap dengan emoji ikonik.</p>
+      </header>
 
       <div class="controls">
-        <div class="search-wrapper">
+        <label class="search-wrapper">
           <input type="search" id="searchInput" placeholder="Cari nama atau spesies hewan...">
-        </div>
+        </label>
         <div class="filter-buttons" id="filterButtons">
           <button class="filter-button active" data-category="semua">Semua</button>
           <button class="filter-button" data-category="Mamalia">Mamalia</button>
@@ -60,39 +78,37 @@
 
       <div id="animalGrid" class="animal-grid" aria-live="polite"></div>
       <p id="emptyState" class="empty-state" hidden>
-        Hmm... pencarianmu belum menemukan hasil. Coba filter lain, ya!
+        Belum ada hasil yang cocok. Coba penelusuran atau filter berbeda, ya!
       </p>
     </section>
 
     <section id="tentang" class="info-section">
-      <div class="info-card">
-        <h4>Tentang HANFADA</h4>
+      <article class="info-card">
+        <h4>Tentang HANFANDA</h4>
         <p>
-          HANFADA menghadirkan biodata hewan dengan pendekatan edukasi modern.
-          Kami meramu konten dengan visual elegan agar setiap kisah fauna tersampaikan dengan penuh gaya.
+          HANFANDA memadukan ragam data satwa dengan visual dramatis untuk menghadirkan pengalaman belajar yang
+          imersif. Setiap detail disusun agar mudah dipahami, tanpa mengurangi aura misterius para penghuni kebun binatang.
         </p>
-      </div>
-      <div class="info-card">
-        <h4>Tur Virtual</h4>
+      </article>
+      <article class="info-card">
+        <h4>Tur Kurasi</h4>
         <p>
-          Ikuti tur virtual interaktif yang menampilkan kehidupan sehari-hari para penghuni kebun binatang,
-          lengkap dengan narasi pawang profesional.
+          Ikuti tur digital terkurasi yang menampilkan momen unik hewan langka, diselingi wawasan dari para perawat profesional.
         </p>
-      </div>
-      <div class="info-card">
+      </article>
+      <article class="info-card">
         <h4>Konservasi</h4>
         <p>
-          Setiap kunjungan ke platform ini turut mendukung program konservasi
-          dan rehabilitasi habitat satwa yang dicanangkan HANFADA.
+          Setiap interaksi di platform ini mendukung proyek konservasi berkelanjutan, mulai dari rehabilitasi habitat hingga edukasi komunitas.
         </p>
-      </div>
+      </article>
     </section>
   </main>
 
   <footer id="kontak" class="footer">
     <div>
-      <h5>Kontak</h5>
-      <p>Email: halo@hanfada.id</p>
+      <h5>Hubungi Kami</h5>
+      <p>Email: halo@hanfanda.id</p>
       <p>Telepon: +62 811-2233-4455</p>
     </div>
     <div>
@@ -100,10 +116,10 @@
       <p>Jl. Flora Fauna No. 8, Kota Satwa, Indonesia</p>
     </div>
     <div>
-      <h5>Media Sosial</h5>
-      <p>@hanfada.zoo di Instagram, TikTok, dan YouTube</p>
+      <h5>Ikuti HANFANDA</h5>
+      <p>@hanfanda.zoo di Instagram, TikTok, dan YouTube</p>
     </div>
-    <p class="footer-note">© 2025 HANFADA. Semua hak dilindungi.</p>
+    <p class="footer-note">© 2025 HANFANDA. Semua hak dilindungi.</p>
   </footer>
 
   <script src="script.js"></script>
