@@ -1,0 +1,147 @@
+const animals = [
+  {
+    name: "Harimau Sumatra",
+    species: "Panthera tigris sumatrae",
+    category: "Mamalia",
+    habitat: "Hutan hujan tropis Sumatra",
+    diet: "Karnivora (rusa, babi hutan, primata)",
+    character: "Lincah, soliter, dan sangat protektif",
+    funFact: "Memiliki loreng paling rapat dibanding subspecies harimau lainnya."
+  },
+  {
+    name: "Komodo",
+    species: "Varanus komodoensis",
+    category: "Reptil",
+    habitat: "Padang savana dan hutan kering Nusa Tenggara Timur",
+    diet: "Karnivora oportunis (bangkai, mamalia, burung)",
+    character: "Tenang, sabar menunggu, tetapi lincah saat berburu",
+    funFact: "Air liurnya mengandung lebih dari 50 jenis bakteri."
+  },
+  {
+    name: "Kakatua Raja",
+    species: "Probosciger aterrimus",
+    category: "Burung",
+    habitat: "Hutan hujan Papua dan Australia Utara",
+    diet: "Biji-bijian, kacang-kacangan, dan buah hutan",
+    character: "Cerdas, vokal, dan suka bersosialisasi",
+    funFact: "Memiliki jambul besar yang dapat ditegakkan saat berkomunikasi."
+  },
+  {
+    name: "Orangutan Kalimantan",
+    species: "Pongo pygmaeus",
+    category: "Mamalia",
+    habitat: "Kanopi hutan tropis Kalimantan",
+    diet: "Omnivora (buah, daun, serangga, madu)",
+    character: "Pendiam, penyayang, dan sangat pintar menggunakan alat",
+    funFact: "Menghabiskan hingga 90% waktunya di atas pohon."
+  },
+  {
+    name: "Burung Maleo",
+    species: "Macrocephalon maleo",
+    category: "Burung",
+    habitat: "Hutan dan pantai Sulawesi",
+    diet: "Serangga, buah, biji-bijian, dan siput darat",
+    character: "Setia, suka menggali tanah pasir yang hangat",
+    funFact: "Telurnya lima kali lebih besar daripada telur ayam!"
+  },
+  {
+    name: "Katak Bertanduk Suriname",
+    species: "Ceratophrys cornuta",
+    category: "Amfibi",
+    habitat: "Hutan lembap dataran rendah Amerika Selatan",
+    diet: "Serangga, invertebrata kecil, kadal, bahkan mamalia kecil",
+    character: "Diam menunggu mangsa lewat, lalu menerkam cepat",
+    funFact: "Mulutnya bisa terbuka lebar hampir setengah ukuran tubuhnya."
+  },
+  {
+    name: "Gajah Asia",
+    species: "Elephas maximus",
+    category: "Mamalia",
+    habitat: "Hutan tropis dan rawa Asia Tenggara",
+    diet: "Herbivora (rumput, daun, kulit pohon, buah)",
+    character: "Perasa, berkelompok, dan memiliki ingatan kuat",
+    funFact: "Dikenal memiliki jaringan keluarga yang sangat erat."
+  },
+  {
+    name: "Iguana Hijau",
+    species: "Iguana iguana",
+    category: "Reptil",
+    habitat: "Hutan hujan Amerika Tengah dan Selatan",
+    diet: "Herbivora (daun, bunga, buah)",
+    character: "Santai, pencinta sinar matahari, dan jago memanjat",
+    funFact: "Dapat berenang dan menahan napas hingga 30 menit."
+  }
+];
+
+const animalGrid = document.getElementById("animalGrid");
+const searchInput = document.getElementById("searchInput");
+const filterButtons = document.getElementById("filterButtons");
+const emptyState = document.getElementById("emptyState");
+
+function createAnimalCard(animal) {
+  const card = document.createElement("article");
+  card.className = "animal-card";
+
+  card.innerHTML = `
+    <span class="chip">${animal.category}</span>
+    <h4>${animal.name}</h4>
+    <p class="species">${animal.species}</p>
+    <div class="animal-meta">
+      <div><strong>Habitat:</strong> ${animal.habitat}</div>
+      <div><strong>Pola makan:</strong> ${animal.diet}</div>
+      <div><strong>Karakter:</strong> ${animal.character}</div>
+    </div>
+    <div class="tags">
+      <span class="tag">Fun Fact:</span>
+      <span class="tag">${animal.funFact}</span>
+    </div>
+  `;
+
+  return card;
+}
+
+function renderAnimals(list) {
+  animalGrid.innerHTML = "";
+  if (list.length === 0) {
+    emptyState.hidden = false;
+    return;
+  }
+  emptyState.hidden = true;
+  list.forEach(animal => animalGrid.appendChild(createAnimalCard(animal)));
+}
+
+function applyFilters() {
+  const keyword = searchInput.value.trim().toLowerCase();
+  const activeCategory = filterButtons.querySelector(".filter-button.active").dataset.category;
+
+  const filtered = animals.filter(animal => {
+    const matchesCategory = activeCategory === "semua" || animal.category === activeCategory;
+    const matchesKeyword =
+      animal.name.toLowerCase().includes(keyword) ||
+      animal.species.toLowerCase().includes(keyword);
+    return matchesCategory && matchesKeyword;
+  });
+
+  renderAnimals(filtered);
+}
+
+filterButtons.addEventListener("click", event => {
+  if (!event.target.classList.contains("filter-button")) return;
+
+  const buttons = filterButtons.querySelectorAll(".filter-button");
+  buttons.forEach(button => button.classList.remove("active"));
+  event.target.classList.add("active");
+  applyFilters();
+});
+
+searchInput.addEventListener("input", () => {
+  applyFilters();
+});
+
+function scrollToCollection() {
+  document.getElementById("koleksi").scrollIntoView({ behavior: "smooth" });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderAnimals(animals);
+});
