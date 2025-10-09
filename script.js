@@ -89,7 +89,6 @@ const emptyState = document.getElementById("emptyState");
 function createAnimalCard(animal) {
   const card = document.createElement("article");
   card.className = "animal-card";
-
   card.innerHTML = `
     <div class="animal-avatar">${animal.emoji}</div>
     <span class="chip">${animal.category}</span>
@@ -105,7 +104,6 @@ function createAnimalCard(animal) {
       <span class="tag">${animal.funFact}</span>
     </div>
   `;
-
   return card;
 }
 
@@ -121,7 +119,8 @@ function renderAnimals(list) {
 
 function applyFilters() {
   const keyword = searchInput.value.trim().toLowerCase();
-  const activeCategory = filterButtons.querySelector(".filter-button.active").dataset.category;
+  const activeButton = filterButtons.querySelector(".filter-button.active");
+  const activeCategory = activeButton ? activeButton.dataset.category : "semua";
 
   const filtered = animals.filter(animal => {
     const matchesCategory = activeCategory === "semua" || animal.category === activeCategory;
@@ -136,9 +135,7 @@ function applyFilters() {
 
 filterButtons.addEventListener("click", event => {
   if (!event.target.classList.contains("filter-button")) return;
-
-  const buttons = filterButtons.querySelectorAll(".filter-button");
-  buttons.forEach(button => button.classList.remove("active"));
+  filterButtons.querySelectorAll(".filter-button").forEach(button => button.classList.remove("active"));
   event.target.classList.add("active");
   applyFilters();
 });
